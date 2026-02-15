@@ -22,8 +22,8 @@ wheels/
 
 # Virtual Environment
 venv/
-ENV/
 env/
+ENV/
 .venv
 
 # IDE
@@ -43,7 +43,9 @@ instance/
 
 # Environment variables
 .env
-.env.local
+.flaskenv
 
 # Logs
 *.log
+
+# Made with Bob

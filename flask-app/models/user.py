@@ -1,8 +1,23 @@
+"""
+User model for the Flask application.
+Equivalent to the Java User class in Spring Boot.
+"""
+
+
 class User:
-    """User model class"""
+    """User model with id, name, email, age, and city attributes."""
     
     def __init__(self, id=None, name=None, email=None, age=None, city=None):
-        """Initialize User with all fields"""
+        """
+        Initialize a User instance.
+        
+        Args:
+            id (int): User ID
+            name (str): User's full name
+            email (str): User's email address
+            age (int): User's age
+            city (str): User's city
+        """
         self.id = id
         self.name = name
         self.email = email
@@ -10,7 +25,12 @@ class User:
         self.city = city
     
     def to_dict(self):
-        """Convert User object to dictionary"""
+        """
+        Convert User instance to dictionary for JSON serialization.
+        
+        Returns:
+            dict: User data as dictionary
+        """
         return {
             'id': self.id,
             'name': self.name,
@@ -19,10 +39,18 @@ class User:
             'city': self.city
         }
     
-    @staticmethod
-    def from_dict(data):
-        """Create User object from dictionary"""
-        return User(
+    @classmethod
+    def from_dict(cls, data):
+        """
+        Create User instance from dictionary.
+        
+        Args:
+            data (dict): User data dictionary
+            
+        Returns:
+            User: New User instance
+        """
+        return cls(
             id=data.get('id'),
             name=data.get('name'),
             email=data.get('email'),
@@ -31,7 +59,8 @@ class User:
         )
     
     def __repr__(self):
-        """String representation of User"""
+        """String representation of User instance."""
         return f"User(id={self.id}, name='{self.name}', email='{self.email}', age={self.age}, city='{self.city}')"
+
 
 # Made with Bob
